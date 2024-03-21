@@ -1,7 +1,7 @@
 use std::io::{self , Write};
-use serde::{Deserialize};
 
-#[derive(Debug,Deserialize)]
+
+#[derive(Debug)]
 struct AllList{
     tasks:Vec<String>
 }
