@@ -1,4 +1,5 @@
 use std::io::{self , Write};
+use system_shutdown::shutdown;
 
 
 #[derive(Debug)]
@@ -13,8 +14,14 @@ impl AllList {
     }
   
     fn add_task(&mut self, task:String){
-        self.tasks.push(task);
-    }
+        if !self.tasks.contains(&task){
+            self.tasks.push(task);
+            println!("tarefa adicionada com sucesso!");
+
+     }else{
+        println!("Essa tarefa já existe na lista")
+     }
+ }
 
     fn check_task(&mut self,task_index:usize){
         if task_index < self.tasks.len(){
@@ -36,10 +43,16 @@ impl AllList {
         println!("sua lista de tarefas está vazia.")
      }
 }
-
+    //verificação se a tarefa existe ou não existe
     fn remove_task(&mut self,index:usize){
-        self.tasks.remove(index - 1);
-    } 
+        if index >0 && index <= self.tasks.len(){
+            self.tasks.remove(index - 1);
+            println!("removida com sucesso");
+        }else{
+            println!("essa tarefa não existe");
+        }
+
+        } 
 }
 
 
@@ -60,6 +73,7 @@ fn main(){
         println!("'3' mostrar a lista de tarefas");
         println!("'4' remover a lista de tarefas");
         println!("'5'sair");
+        println!("'6'desligar o pc");
     loop{
         input.clear();
         print!("escolha uma opção: ");
@@ -101,6 +115,13 @@ fn main(){
     
     else if opções == 5{
         break
+    }
+
+    else if opções == 6{
+          match shutdown() {
+             Ok(_) => println!("Shutting down, bye!"),
+             Err(error) => eprintln!("Failed to shut down: {}", error),
+    }
     }
 
     else{
