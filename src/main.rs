@@ -52,7 +52,7 @@ impl AllList {
             println!("essa tarefa não existe");
         }
 
-        } 
+    } 
 }
 
 
@@ -81,16 +81,16 @@ fn main(){
         io::stdin().read_line(&mut input).unwrap();
         
 
-       let  opções: u32 = input.trim().parse().unwrap();
+       let  opcoes: u32 = input.trim().parse().unwrap();
 
-    if opções == 1{
+    if opcoes == 1{
         input.clear();
         print!("Digite a tarefa: ");
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut input).unwrap();
         all_list.add_task(input.trim().to_string());
         
-    }else  if opções == 2{
+    }else  if opcoes == 2{
       input.clear();
       print!("digite o numero da tafera que você completou: ");
       io::stdout().flush().unwrap();
@@ -100,11 +100,11 @@ fn main(){
       }
     
 
-    else  if opções == 3{
+    else  if opcoes == 3{
       all_list.list_tasks()
       }
 
-    else if  opções == 4{
+    else if  opcoes == 4{
       input.clear();
       print!("digite o numero da tarefa: ");
       io::stdout().flush().unwrap();
@@ -113,11 +113,11 @@ fn main(){
       all_list.remove_task(index);
       }
     
-    else if opções == 5{
+    else if opcoes == 5{
         break
     }
 
-    else if opções == 6{
+    else if opcoes == 6{
           match shutdown() {
              Ok(_) => println!("Shutting down, bye!"),
              Err(error) => eprintln!("Failed to shut down: {}", error),
