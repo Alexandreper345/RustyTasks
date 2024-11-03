@@ -1,1 +1,1 @@
-# trabalho-
+Desenvolvi um projeto utilizando a linguagem Rust, criando uma aplicação de lista de tarefas. Com ela, é possível adicionar, remover e atualizar tarefas, além de contar com uma funcionalidade para desligar o computador. Foram dias dedicados a estudar e compreender a sintaxe de Rust, mas o esforço valeu a pena pelo resultado alcançado.
